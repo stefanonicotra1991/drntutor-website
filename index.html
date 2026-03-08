@@ -414,17 +414,17 @@
 
     <form class="contact-form" action="https://formspree.io/f/myknzodw" method="POST">
       <div class="form-row">
-        <input class="form-input" type="text" id="ph-name" placeholder="Your Name">
-        <input class="form-input" type="email" id="ph-email" placeholder="Email Address">
+        <input class="form-input" type="text" id="ph-name" name="name" placeholder="Your Name">
+        <input class="form-input" type="email" id="ph-email" name="email" placeholder="Email Address">
       </div>
-      <select class="form-input" id="sel-level">
+      <select class="form-input" id="sel-level" name="level">
         <option value="" disabled selected id="opt-0">Level of Study</option>
         <option id="opt-1">GCSE (Ages 11–16)</option>
         <option id="opt-2">A-Level / Further Maths</option>
         <option id="opt-3">University Level</option>
         <option id="opt-4">Other</option>
       </select>
-      <textarea class="form-input" id="ph-msg" placeholder="Tell me a little about what you're looking for…"></textarea>
+      <textarea class="form-input" id="ph-msg" name="message" placeholder="Tell me a little about what you're looking for…"></textarea>
       <button class="btn-form" type="submit" data-t='{"en":"Send Message","it":"Invia Messaggio"}'>Send Message</button>
     </form>
   </section>
