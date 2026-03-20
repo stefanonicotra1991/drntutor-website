@@ -4,226 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DrNTutor — Mathematics Tutoring</title>
+  <meta name="description" content="Expert mathematics tutoring by Dr Stefano Nicotra. GCSE, A-Level, and university-level maths — online and in person in Sicily. Book a free consultation today.">
+  <link rel="canonical" href="https://drntutor.com/">
+  <link rel="alternate" hreflang="en" href="https://drntutor.com/">
+  <link rel="alternate" hreflang="it" href="https://drntutor.com/it/">
+  <link rel="alternate" hreflang="x-default" href="https://drntutor.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --blue-light: #88BDF2; --blue-deep: #384959;
-      --blue-sky: #BDDDFC;   --blue-slate: #6A89A7;
-      --cream: #F7F4EF;      --ink: #1a2330; --mist: #eef4fb;
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.4rem 4rem;
-      background: rgba(247,244,239,0.88);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(106,137,167,0.15);
-    }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500; color: var(--blue-deep); letter-spacing: 0.04em; }
-    .nav-logo span { color: var(--blue-slate); font-style: italic; }
-    .nav-right { display: flex; align-items: center; gap: 2rem; }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.82rem; font-weight: 400; color: var(--blue-slate); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--blue-deep); }
-    .nav-cta { background: var(--blue-deep); color: var(--cream) !important; padding: 0.55rem 1.4rem !important; border-radius: 2px; }
-    .nav-cta:hover { background: var(--blue-slate) !important; }
-
-    /* LANG TOGGLE */
-    .lang-toggle { display: flex; align-items: center; background: rgba(106,137,167,0.12); border-radius: 20px; padding: 3px; }
-    .lang-btn { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; border: none; background: transparent; color: var(--blue-slate); padding: 0.32rem 0.72rem; border-radius: 16px; cursor: pointer; transition: background 0.2s, color 0.2s; font-family: 'DM Sans', sans-serif; }
-    .lang-btn.active { background: var(--blue-deep); color: var(--cream); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 0 4rem 6rem; padding-top: 5rem;
-      position: relative; overflow: hidden;
-    }
-    .hero-bg { position: absolute; inset: 0; z-index: 0; background: radial-gradient(ellipse 70% 60% at 80% 40%, rgba(189,221,252,0.35) 0%, transparent 70%), radial-gradient(ellipse 40% 50% at 10% 80%, rgba(136,189,242,0.15) 0%, transparent 60%); }
-    .math-float { position: absolute; z-index: 0; font-family: 'Cormorant Garamond', serif; color: rgba(106,137,167,0.08); pointer-events: none; animation: floatUp 20s ease-in-out infinite; }
-    .math-float:nth-child(1) { font-size: 8rem; top: 15%; left: 3%;   animation-delay: 0s; }
-    .math-float:nth-child(2) { font-size: 5rem; top: 65%; left: 1%;   animation-delay: 3s; }
-    .math-float:nth-child(3) { font-size: 6rem; top: 20%; right: 3%;  animation-delay: 6s; }
-    .math-float:nth-child(4) { font-size: 4rem; top: 75%; right: 8%;  animation-delay: 9s; }
-    .math-float:nth-child(5) { font-size: 7rem; top: 45%; left: 45%;  animation-delay: 12s; }
-    @keyframes floatUp { 0%,100% { transform: translateY(0) rotate(-2deg); opacity:.08; } 50% { transform: translateY(-18px) rotate(2deg); opacity:.13; } }
-
-    /* HERO INNER — text left, portrait right */
-    .hero-inner {
-      position: relative; z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 4rem;
-      max-width: 1100px;
-    }
-    .hero-content {}
-    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-slate); margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
-    .hero-eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--blue-slate); }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 4.8rem); font-weight: 300; line-height: 1.1; color: var(--blue-deep); margin-bottom: 1.6rem; }
-    .hero-title em { font-style: italic; color: var(--blue-slate); }
-    .hero-sub { font-size: 1rem; line-height: 1.75; color: #4a6070; max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; }
-    .hero-actions { display: flex; gap: 1rem; align-items: center; }
-    .btn-primary { background: var(--blue-deep); color: var(--cream); padding: 0.9rem 2rem; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.25s, transform 0.15s; display: inline-block; }
-    .btn-primary:hover { background: var(--blue-slate); transform: translateY(-1px); }
-    .btn-secondary { color: var(--blue-deep); font-size: 0.85rem; font-weight: 400; text-decoration: none; letter-spacing: 0.05em; border-bottom: 1px solid var(--blue-light); padding-bottom: 2px; transition: border-color 0.2s; }
-    .btn-secondary:hover { border-color: var(--blue-deep); }
-
-    /* CIRCULAR PORTRAIT */
-    .hero-portrait-wrap {
-      display: flex; flex-direction: column; align-items: center; gap: 1.2rem;
-      flex-shrink: 0;
-    }
-    .portrait-ring {
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      padding: 5px;
-      background: linear-gradient(135deg, var(--blue-light), var(--blue-sky), var(--blue-slate));
-      box-shadow: 0 20px 60px rgba(56,73,89,0.15);
-    }
-    .portrait-inner {
-      width: 100%; height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      background: var(--mist);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    /* Placeholder shown until a real photo is dropped in */
-    .portrait-placeholder {
-      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-      color: var(--blue-slate); text-align: center; padding: 1rem;
-    }
-    .portrait-placeholder svg { opacity: 0.4; }
-    .portrait-placeholder span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.6; }
-    /* Real photo: just swap the src on <img id="portrait-img"> */
-    #portrait-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-
-    .portrait-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; font-weight: 400; font-style: italic;
-      color: var(--blue-slate); letter-spacing: 0.05em; text-align: center;
-    }
-
-    /* SCROLL INDICATOR */
-    .scroll-hint {
-      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
-      opacity: 0.55; animation: fadeInUp 1.2s ease 1.5s both;
-    }
-    .scroll-hint span { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-slate); }
-    .scroll-arrow {
-      width: 20px; height: 20px;
-      border-right: 1.5px solid var(--blue-slate);
-      border-bottom: 1.5px solid var(--blue-slate);
-      transform: rotate(45deg);
-      animation: bounce 1.8s ease-in-out infinite;
-    }
-    @keyframes bounce { 0%,100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
-    @keyframes fadeInUp { from { opacity:0; transform: translateX(-50%) translateY(10px); } to { opacity:.55; transform: translateX(-50%) translateY(0); } }
-
-    /* STRIP */
-    .strip { background: var(--blue-deep); color: var(--blue-sky); padding: 0.8rem 0; overflow: hidden; white-space: nowrap; }
-    .strip-inner { display: inline-flex; gap: 3rem; animation: marquee 25s linear infinite; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
-    .strip-inner span { opacity: 0.7; }
-    .strip-dot { color: var(--blue-light); opacity: 1 !important; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* SECTIONS */
-    section { padding: 7rem 4rem; }
-    .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-slate); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.7rem; }
-    .section-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--blue-light); }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--blue-deep); line-height: 1.2; }
-
-    /* SERVICES */
-    .services { background: var(--mist); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; }
-    .service-card { background: white; padding: 2.5rem; border-radius: 4px; border: 1px solid rgba(136,189,242,0.25); position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(56,73,89,0.1); }
-    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--blue-light), var(--blue-sky)); }
-    .service-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--blue-sky); line-height: 1; margin-bottom: 1rem; }
-    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--blue-deep); margin-bottom: 0.8rem; }
-    .service-desc { font-size: 0.88rem; line-height: 1.7; color: #4a6070; font-weight: 300; }
-    .service-tag { display: inline-block; margin-top: 1.2rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-slate); border: 1px solid var(--blue-light); padding: 0.3rem 0.7rem; border-radius: 1px; }
-
-    /* ABOUT */
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .about-body { font-size: 0.95rem; line-height: 1.85; color: #3d5467; font-weight: 300; margin-top: 1.5rem; }
-    .about-body p + p { margin-top: 1.2rem; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .stat-box { background: var(--mist); border: 1px solid rgba(136,189,242,0.3); border-radius: 4px; padding: 1.8rem; text-align: center; }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--blue-deep); line-height: 1; }
-    .stat-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-slate); margin-top: 0.5rem; }
-    .about-quote { grid-column: 1 / -1; background: var(--blue-deep); color: var(--blue-sky); padding: 2.5rem 3rem; border-radius: 4px; margin-top: 1.5rem; position: relative; }
-    .about-quote::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 6rem; font-weight: 300; color: var(--blue-slate); position: absolute; top: -1rem; left: 2rem; line-height: 1; }
-    .about-quote p { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; font-weight: 300; line-height: 1.6; }
-
-    /* APPROACH */
-    .approach { background: var(--mist); }
-    .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
-    .approach-item { padding: 2rem; border-left: 2px solid var(--blue-light); }
-    .approach-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .approach-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--blue-deep); margin-bottom: 0.7rem; }
-    .approach-text { font-size: 0.83rem; line-height: 1.7; color: #4a6070; font-weight: 300; }
-
-    /* CONTACT */
-    .contact { background: var(--blue-deep); color: var(--blue-sky); text-align: center; }
-    .contact .section-label { color: var(--blue-light); justify-content: center; }
-    .contact .section-label::before { background: var(--blue-slate); }
-    .contact .section-title { color: white; margin-bottom: 1.2rem; }
-    .contact-sub { font-size: 1rem; line-height: 1.7; color: var(--blue-sky); max-width: 540px; margin: 0 auto 2.5rem; font-weight: 300; }
-    .sicily-note {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.78rem; color: rgba(189,221,252,0.55);
-      border: 1px solid rgba(136,189,242,0.2);
-      padding: 0.45rem 1rem; border-radius: 20px;
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.04em;
-    }
-    .sicily-note .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--blue-light); opacity: 0.6; flex-shrink: 0; }
-    .contact-form { max-width: 520px; margin: 0 auto; display: grid; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-input { background: rgba(255,255,255,0.07); border: 1px solid rgba(136,189,242,0.25); border-radius: 2px; padding: 0.85rem 1.1rem; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 300; outline: none; transition: border-color 0.2s; width: 100%; }
-    .form-input::placeholder { color: rgba(189,221,252,0.4); }
-    .form-input:focus { border-color: var(--blue-light); }
-    select.form-input option { background: var(--blue-deep); color: white; }
-    textarea.form-input { resize: vertical; min-height: 110px; }
-    .btn-form { background: var(--blue-light); color: var(--blue-deep); padding: 1rem 2.5rem; border: none; border-radius: 2px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; width: 100%; }
-    .btn-form:hover { background: var(--blue-sky); }
-
-    /* FOOTER */
-    footer { background: #0e1820; color: rgba(189,221,252,0.5); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; letter-spacing: 0.05em; }
-
-    /* REVEAL */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .hero .reveal { opacity: 1; transform: translateY(0); }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      .hero { padding: 6rem 1.5rem 4rem; }
-      .hero-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 2.5rem; }
-      .hero-eyebrow { justify-content: center; }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-actions { justify-content: center; }
-      .portrait-ring { width: 240px; height: 240px; }
-      section { padding: 5rem 1.5rem; }
-      .services-grid { grid-template-columns: 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .approach-grid { grid-template-columns: 1fr 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -232,14 +20,14 @@
     <div class="nav-logo">Dr<span>N</span>Tutor</div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#services" data-t='{"en":"Services","it":"Servizi"}'>Services</a></li>
-        <li><a href="#about" data-t='{"en":"About","it":"Chi sono"}'>About</a></li>
-        <li><a href="#approach" data-t='{"en":"Approach","it":"Metodo"}'>Approach</a></li>
-        <li><a href="#contact" class="nav-cta" data-t='{"en":"Book a Session","it":"Prenota"}'>Book a Session</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#contact" class="nav-cta">Book a Session</a></li>
       </ul>
       <div class="lang-toggle">
-        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" id="btn-it" onclick="setLang('it')">IT</button>
+        <a href="/" class="lang-btn active">EN</a>
+        <a href="/it/" class="lang-btn">IT</a>
       </div>
     </div>
   </nav>
@@ -253,14 +41,14 @@
     <div class="hero-inner">
       <!-- TEXT -->
       <div class="hero-content reveal">
-        <div class="hero-eyebrow" data-t='{"en":"Mathematics Tutoring","it":"Ripetizioni di Matematica"}'>Mathematics Tutoring</div>
-        <h1 class="hero-title" data-t='{"en":"Mathematics,<br><em>made clear.<\/em>","it":"La matematica,<br><em>resa chiara.<\/em>"}'>Mathematics,<br><em>made clear.</em></h1>
-        <p class="hero-sub" data-t='{"en":"Experienced maths teacher focused on revealing the clear, engaging, and empowering nature of mathematics to every student — from GCSE through to university level.","it":"Insegnante di matematica con esperienza, dedicato a rendere la matematica chiara, coinvolgente e accessibile a ogni studente — dalle scuole medie fino all'università."}'>
+        <div class="hero-eyebrow">Mathematics Tutoring</div>
+        <h1 class="hero-title">Mathematics,<br><em>made clear.</em></h1>
+        <p class="hero-sub">
           Experienced maths teacher focused on revealing the clear, engaging, and empowering nature of mathematics to every student — from GCSE through to university level.
         </p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary" data-t='{"en":"Book a Free Consultation","it":"Prenota una Consulenza Gratuita"}'>Book a Free Consultation</a>
-          <a href="#about" class="btn-secondary" data-t='{"en":"Learn More","it":"Scopri di più"}'>Learn More</a>
+          <a href="#contact" class="btn-primary">Book a Free Consultation</a>
+          <a href="#about" class="btn-secondary">Learn More</a>
         </div>
       </div>
 
@@ -268,17 +56,17 @@
       <div class="hero-portrait-wrap reveal" style="transition-delay:0.2s">
         <div class="portrait-ring">
           <div class="portrait-inner">
-            <img id="portrait-img" src="images/portrait.jpg">
+            <img id="portrait-img" src="images/portrait.jpg" alt="Dr Stefano Nicotra">
           </div>
         </div>
-        <div class="portrait-name" data-t='{"en":"Dr Stefano Nicotra","it":"Dr Stefano Nicotra"}'>Dr Stefano Nicotra</div>
-        <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue-slate);text-align:center;" data-t='{"en":"Mathematics Tutor","it":"Tutor di Matematica"}'>Mathematics Tutor</div>
+        <div class="portrait-name">Dr Stefano Nicotra</div>
+        <div class="portrait-role">Mathematics Tutor</div>
       </div>
     </div>
 
     <!-- SCROLL HINT -->
     <div class="scroll-hint">
-      <span data-t='{"en":"Scroll","it":"Scorri"}'>Scroll</span>
+      <span>Scroll</span>
       <div class="scroll-arrow"></div>
     </div>
   </section>
@@ -286,85 +74,85 @@
   <!-- STRIP -->
   <div class="strip">
     <div class="strip-inner">
-      <span data-t='{"en":"GCSE Mathematics","it":"Matematica GCSE"}'>GCSE Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"A-Level Mathematics","it":"Matematica A-Level"}'>A-Level Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"A-Level Further Maths","it":"Further Maths A-Level"}'>A-Level Further Maths</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"University Level","it":"Livello Universitario"}'>University Level</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Pure Mathematics","it":"Matematica Pura"}'>Pure Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Applied Mathematics","it":"Matematica Applicata"}'>Applied Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Statistics","it":"Statistica"}'>Statistics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Online Lessons","it":"Lezioni Online"}'>Online Lessons</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"GCSE Mathematics","it":"Matematica GCSE"}'>GCSE Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"A-Level Mathematics","it":"Matematica A-Level"}'>A-Level Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"A-Level Further Maths","it":"Further Maths A-Level"}'>A-Level Further Maths</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"University Level","it":"Livello Universitario"}'>University Level</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Pure Mathematics","it":"Matematica Pura"}'>Pure Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Applied Mathematics","it":"Matematica Applicata"}'>Applied Mathematics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Statistics","it":"Statistica"}'>Statistics</span><span class="strip-dot">·</span>
-      <span data-t='{"en":"Online Lessons","it":"Lezioni Online"}'>Online Lessons</span><span class="strip-dot">·</span>
+      <span>GCSE Mathematics</span><span class="strip-dot">·</span>
+      <span>A-Level Mathematics</span><span class="strip-dot">·</span>
+      <span>A-Level Further Maths</span><span class="strip-dot">·</span>
+      <span>University Level</span><span class="strip-dot">·</span>
+      <span>Pure Mathematics</span><span class="strip-dot">·</span>
+      <span>Applied Mathematics</span><span class="strip-dot">·</span>
+      <span>Statistics</span><span class="strip-dot">·</span>
+      <span>Online Lessons</span><span class="strip-dot">·</span>
+      <span>GCSE Mathematics</span><span class="strip-dot">·</span>
+      <span>A-Level Mathematics</span><span class="strip-dot">·</span>
+      <span>A-Level Further Maths</span><span class="strip-dot">·</span>
+      <span>University Level</span><span class="strip-dot">·</span>
+      <span>Pure Mathematics</span><span class="strip-dot">·</span>
+      <span>Applied Mathematics</span><span class="strip-dot">·</span>
+      <span>Statistics</span><span class="strip-dot">·</span>
+      <span>Online Lessons</span><span class="strip-dot">·</span>
     </div>
   </div>
 
   <!-- SERVICES -->
   <section class="services" id="services">
-    <div class="section-label" data-t='{"en":"What I Offer","it":"Cosa Offro"}'>What I Offer</div>
-    <h2 class="section-title" data-t='{"en":"Tailored tutoring<br>at every level","it":"Ripetizioni su misura<br>per ogni livello"}'>Tailored tutoring<br>at every level</h2>
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Tailored tutoring<br>at every level</h2>
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-num">01</div>
-        <div class="service-name" data-t='{"en":"GCSE Mathematics","it":"Matematica — Scuola Media"}'>GCSE Mathematics</div>
-        <p class="service-desc" data-t='{"en":"Building strong foundations and exam confidence for students aged 11–16. Targeted support for those who find maths challenging, and stretch material for high achievers.","it":"Costruire basi solide e fiducia per gli studenti delle scuole medie (11–14 anni). Supporto mirato per chi trova la matematica difficile, e materiale di approfondimento per i più brillanti."}'>
+        <div class="service-name">GCSE Mathematics</div>
+        <p class="service-desc">
           Building strong foundations and exam confidence for students aged 11–16. Targeted support for those who find maths challenging, and stretch material for high achievers.
         </p>
-        <span class="service-tag" data-t='{"en":"Ages 11–16","it":"Età 11–14"}'>Ages 11–16</span>
+        <span class="service-tag">Ages 11–16</span>
       </div>
       <div class="service-card reveal" style="transition-delay:0.1s">
         <div class="service-num">02</div>
-        <div class="service-name" data-t='{"en":"A-Level Mathematics","it":"Matematica — Liceo"}'>A-Level Mathematics</div>
-        <p class="service-desc" data-t='{"en":"Deep, rigorous preparation for A-Level and Further Maths. Pure, mechanics, statistics — taught with clarity and a focus on building genuine understanding, not just technique.","it":"Preparazione solida per studenti di scuola superiore: equazioni, funzioni, calcolo, trigonometria e probabilità — insegnati con chiarezza, con l&apos;obiettivo di costruire una comprensione autentica e profonda."}'>
+        <div class="service-name">A-Level Mathematics</div>
+        <p class="service-desc">
           Deep, rigorous preparation for A-Level and Further Maths. Pure, mechanics, statistics — taught with clarity and a focus on building genuine understanding, not just technique.
-</p>
-        <span class="service-tag" data-t='{"en":"Ages 16–18","it":"Età 14–19"}'>Ages 16–18</span>
+        </p>
+        <span class="service-tag">Ages 16–18</span>
       </div>
       <div class="service-card reveal" style="transition-delay:0.2s">
         <div class="service-num">03</div>
-        <div class="service-name" data-t='{"en":"University Mathematics","it":"Matematica Universitaria"}'>University Mathematics</div>
-        <p class="service-desc" data-t='{"en":"From analysis and algebra to topology and beyond. PhD-level expertise brought to university students, with the patience and clarity that comes from years of teaching complex concepts.","it":"Dall&apos;analisi all&apos;algebra lineare, dalla statistica alla topologia e oltre. Competenza a livello di dottorato al servizio degli studenti universitari, con la pazienza e la chiarezza che derivano da anni di insegnamento."}'>
+        <div class="service-name">University Mathematics</div>
+        <p class="service-desc">
           From analysis and algebra to topology and beyond. PhD-level expertise brought to university students, with the patience and clarity that comes from years of teaching complex concepts.
-</p>
-        <span class="service-tag" data-t='{"en":"Undergraduate &amp; Postgraduate","it":"Triennale e Magistrale"}'>Undergraduate &amp; Postgraduate</span>
+        </p>
+        <span class="service-tag">Undergraduate &amp; Postgraduate</span>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about" style="padding: 7rem 4rem;">
+  <section id="about">
     <div class="about-grid">
       <div class="reveal">
-        <div class="section-label" data-t='{"en":"About Me","it":"Chi Sono"}'>About Me</div>
-        <h2 class="section-title" data-t='{"en":"A mathematician who loves to teach","it":"Un matematico che ama insegnare"}'>A mathematician who loves to teach</h2>
+        <div class="section-label">About Me</div>
+        <h2 class="section-title">A mathematician who loves to teach</h2>
         <div class="about-body">
-          <p data-t='{"en":"My passion for mathematics, sparked in adolescence, has taken me across regions, countries, and continents, culminating in a PhD in Pure Mathematics from the University of Liverpool and a career as a secondary school maths teacher.","it":"La mia passione per la matematica, nata in adolescenza, mi ha portato attraverso regioni, paesi e continenti, culminando in un dottorato in Matematica Pura presso l\'Università di Liverpool e in una carriera come insegnante di matematica."}'>
+          <p>
             My passion for mathematics, sparked in adolescence, has taken me across regions, countries, and continents, culminating in a PhD in Pure Mathematics from the University of Liverpool and a career as a secondary school maths teacher.
           </p>
-          <p data-t='{"en":"I believe that, with patience and the right guidance, anyone can master mathematics — not just for exams, but for life. Exams are milestones in a student\'s journey, fostering resilience and growth — not obstacles to fear.","it":"Credo che, con pazienza e la giusta guida, chiunque possa padroneggiare la matematica — non solo per gli esami, ma per la vita. Gli esami sono tappe nel percorso di uno studente, che favoriscono resilienza e crescita."}'>
+          <p>
             I believe that, with patience and the right guidance, anyone can master mathematics — not just for exams, but for life. Exams are milestones in a student's journey, fostering resilience and growth — not obstacles to fear.
           </p>
-          <p data-t='{"en":"Beyond mathematics, I\'m a musician, singer-songwriter, husband, and recently a father. My interest in Buddhism, yoga, and meditation shapes how I approach teaching: with mindfulness, patience, and genuine care for each student\'s journey.","it":"Al di là della matematica, sono un musicista, cantautore, marito e recentemente padre. Il mio interesse per il buddhismo, lo yoga e la meditazione plasma il mio approccio all\'insegnamento: con consapevolezza e cura genuina."}'>
+          <p>
             Beyond mathematics, I'm a musician, singer-songwriter, husband, and recently a father. My interest in Buddhism, yoga, and meditation shapes how I approach teaching: with mindfulness, patience, and genuine care for each student's journey.
           </p>
         </div>
       </div>
       <div class="reveal" style="transition-delay:0.15s">
         <div class="about-stats">
-          <div class="stat-box"><div class="stat-num">PhD</div><div class="stat-label" data-t='{"en":"Pure Mathematics","it":"Matematica Pura"}'>Pure Mathematics</div></div>
-          <div class="stat-box"><div class="stat-num">11–∞</div><div class="stat-label" data-t='{"en":"Ages Taught","it":"Età degli Studenti"}'>Ages Taught</div></div>
-          <div class="stat-box"><div class="stat-num" data-t='{"en":"GCSE–Uni","it":"Media–Uni"}'>GCSE–Uni</div><div class="stat-label" data-t='{"en":"All the way to University","it":"Scuola Media · Liceo · Università"}'>All the way to University</div></div>
-          <div class="stat-box"><div class="stat-num">1:1</div><div class="stat-label" data-t='{"en":"Personalised Focus","it":"Focus Personalizzato"}'>Personalised Focus</div></div>
+          <div class="stat-box"><div class="stat-num">PhD</div><div class="stat-label">Pure Mathematics</div></div>
+          <div class="stat-box"><div class="stat-num">11–∞</div><div class="stat-label">Ages Taught</div></div>
+          <div class="stat-box"><div class="stat-num">GCSE–Uni</div><div class="stat-label">All the way to University</div></div>
+          <div class="stat-box"><div class="stat-num">1:1</div><div class="stat-label">Personalised Focus</div></div>
         </div>
       </div>
       <div class="about-quote reveal">
-        <p data-t='{"en":"With patience and the right guidance, anyone can master mathematics — not just for exams, but for life.","it":"Con pazienza e la giusta guida, chiunque può padroneggiare la matematica — non solo per gli esami, ma per la vita."}'>
+        <p>
           With patience and the right guidance, anyone can master mathematics — not just for exams, but for life.
         </p>
       </div>
@@ -373,105 +161,75 @@
 
   <!-- APPROACH -->
   <section class="approach" id="approach">
-    <div class="section-label" data-t='{"en":"My Method","it":"Il Mio Metodo"}'>My Method</div>
-    <h2 class="section-title" data-t='{"en":"How I teach","it":"Come insegno"}'>How I teach</h2>
+    <div class="section-label">My Method</div>
+    <h2 class="section-title">How I teach</h2>
     <div class="approach-grid">
       <div class="approach-item reveal">
         <div class="approach-icon">🎯</div>
-        <div class="approach-title" data-t='{"en":"Student-Centred","it":"Centrato sullo Studente"}'>Student-Centred</div>
-        <p class="approach-text" data-t='{"en":"Every student is unique. Lessons are tailored to individual learning styles, pace, and goals — not a one-size-fits-all curriculum.","it":"Ogni studente è unico. Le lezioni sono adattate agli stili di apprendimento, al ritmo e agli obiettivi individuali."}'>Every student is unique. Lessons are tailored to individual learning styles, pace, and goals — not a one-size-fits-all curriculum.</p>
+        <div class="approach-title">Student-Centred</div>
+        <p class="approach-text">Every student is unique. Lessons are tailored to individual learning styles, pace, and goals — not a one-size-fits-all curriculum.</p>
       </div>
       <div class="approach-item reveal" style="transition-delay:0.1s">
         <div class="approach-icon">🖥️</div>
-        <div class="approach-title" data-t='{"en":"Interactive Tools","it":"Strumenti Interattivi"}'>Interactive Tools</div>
-        <p class="approach-text" data-t='{"en":"Electronic whiteboards like Miro make lessons dynamic and visual. Complex ideas become clear through diagrams, annotations, and live problem-solving.","it":"Le lavagne digitali come Miro rendono le lezioni dinamiche e visive. Le idee complesse diventano chiare attraverso diagrammi e risoluzione di problemi in tempo reale."}'>Electronic whiteboards like Miro make lessons dynamic and visual. Complex ideas become clear through diagrams, annotations, and live problem-solving.</p>
+        <div class="approach-title">Interactive Tools</div>
+        <p class="approach-text">Electronic whiteboards like Miro make lessons dynamic and visual. Complex ideas become clear through diagrams, annotations, and live problem-solving.</p>
       </div>
       <div class="approach-item reveal" style="transition-delay:0.2s">
         <div class="approach-icon">🪜</div>
-        <div class="approach-title" data-t='{"en":"I Do, We Do, You Do","it":"Io Faccio, Facciamo, Tu Fai"}'>I Do, We Do, You Do</div>
-        <p class="approach-text" data-t='{"en":"A proven scaffolding method that moves students from guided instruction through collaborative practice to independent mastery.","it":"Un metodo di scaffolding collaudato che guida gli studenti dall\'istruzione guidata alla pratica collaborativa fino alla padronanza autonoma."}'>A proven scaffolding method that moves students from guided instruction through collaborative practice to independent mastery.</p>
+        <div class="approach-title">I Do, We Do, You Do</div>
+        <p class="approach-text">A proven scaffolding method that moves students from guided instruction through collaborative practice to independent mastery.</p>
       </div>
       <div class="approach-item reveal" style="transition-delay:0.3s">
         <div class="approach-icon">🌱</div>
-        <div class="approach-title" data-t='{"en":"Holistic Growth","it":"Crescita Olistica"}'>Holistic Growth</div>
-        <p class="approach-text" data-t='{"en":"Mathematics builds confidence and resilience. I nurture not just mathematical skill, but the mindset to approach any challenge with clarity.","it":"La matematica costruisce fiducia e resilienza. Coltivo non solo le competenze matematiche, ma la mentalità per affrontare qualsiasi sfida con chiarezza."}'>Mathematics builds confidence and resilience. I nurture not just mathematical skill, but the mindset to approach any challenge with clarity.</p>
+        <div class="approach-title">Holistic Growth</div>
+        <p class="approach-text">Mathematics builds confidence and resilience. I nurture not just mathematical skill, but the mindset to approach any challenge with clarity.</p>
       </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <div class="section-label" data-t='{"en":"Get in Touch","it":"Contattami"}'>Get in Touch</div>
-    <h2 class="section-title" data-t='{"en":"Begin your journey","it":"Inizia il tuo percorso"}'>Begin your journey</h2>
-    <p class="contact-sub" data-t='{"en":"Whether you\'re preparing for GCSE, A-Levels, or university exams — or simply want to deepen your understanding of mathematics — I\'d love to hear from you.","it":"Che tu stia preparando gli esami delle medie, della maturità o dell'università — o che voglia semplicemente approfondire la tua comprensione della matematica — sono felice di sentirti."}'>
+    <div class="section-label">Get in Touch</div>
+    <h2 class="section-title">Begin your journey</h2>
+    <p class="contact-sub">
       Whether you're preparing for GCSE, A-Levels, or university exams — or simply want to deepen your understanding of mathematics — I'd love to hear from you.
     </p>
-
-    <!-- Sicily quiet note -->
-    <div class="sicily-note" id="sicily-note">
+    <div class="sicily-note">
       <div class="dot"></div>
-      <span data-t='{"en":"In-person lessons also available in Sicily","it":"Lezioni in presenza disponibili anche in Sicilia"}'>In-person lessons also available in Sicily</span>
+      <span>In-person lessons also available in Sicily</span>
     </div>
-
     <form class="contact-form" action="https://formspree.io/f/myknzodw" method="POST">
       <div class="form-row">
-        <input class="form-input" type="text" id="ph-name" name="name" placeholder="Your Name">
-        <input class="form-input" type="email" id="ph-email" name="email" placeholder="Email Address">
+        <input class="form-input" type="text" name="name" placeholder="Your Name">
+        <input class="form-input" type="email" name="email" placeholder="Email Address">
       </div>
-      <select class="form-input" id="sel-level" name="level">
-        <option value="" disabled selected id="opt-0">Level of Study</option>
-        <option id="opt-1">GCSE (Ages 11–16)</option>
-        <option id="opt-2">A-Level / Further Maths</option>
-        <option id="opt-3">University Level</option>
-        <option id="opt-4">Other</option>
+      <select class="form-input" name="level">
+        <option value="" disabled selected>Level of Study</option>
+        <option>GCSE (Ages 11–16)</option>
+        <option>A-Level / Further Maths</option>
+        <option>University Level</option>
+        <option>Other</option>
       </select>
-      <textarea class="form-input" id="ph-msg" name="message" placeholder="Tell me a little about what you're looking for…"></textarea>
-      <button class="btn-form" type="submit" data-t='{"en":"Send Message","it":"Invia Messaggio"}'>Send Message</button>
+      <textarea class="form-input" name="message" placeholder="Tell me a little about what you're looking for…"></textarea>
+      <button class="btn-form" type="submit">Send Message</button>
     </form>
   </section>
 
-<!-- FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <div>© 2026 DrNTutor · <span style="opacity:0.75">Dr Stefano Nicotra</span></div>
     <div>info@drntutor.com</div>
-    <div data-t='{"en":"Designed with care for every learner","it":"Progettato con cura per ogni studente"}'>Designed with care for every learner</div>
+    <div>Designed with care for every learner</div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const formStrings = {
-      en: { name:'Your Name', email:'Email Address', sel:'Level of Study', o1:'GCSE (Ages 11–16)', o2:'A-Level / Further Maths', o3:'University Level', o4:'Other', msg:"Tell me a little about what you're looking for…" },
-      it: { name:'Il tuo Nome', email:'Indirizzo Email', sel:'Livello di Studio', o1:'Scuola Media (11–14 anni)', o2:'Scuola Superiore (14–19 anni)', o3:'Livello Universitario', o4:'Altro', msg:'Dimmi qualcosa su ciò che stai cercando…' }
-    };
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <!-- Replace YOURPHONENUMBER with your number: country code + digits, no + or spaces (e.g. 447911123456) -->
+  <a href="https://wa.me/+447492502387" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
 
-    function setLang(lang) {
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      document.getElementById('btn-it').classList.toggle('active', lang === 'it');
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-t]').forEach(el => {
-        try {
-          const t = JSON.parse(el.getAttribute('data-t'));
-          if (t[lang] !== undefined) el.innerHTML = t[lang];
-        } catch(e) {}
-      });
-      const s = formStrings[lang];
-      document.getElementById('ph-name').placeholder  = s.name;
-      document.getElementById('ph-email').placeholder = s.email;
-      document.getElementById('ph-msg').placeholder   = s.msg;
-      document.getElementById('opt-0').textContent = s.sel;
-      document.getElementById('opt-1').textContent = s.o1;
-      document.getElementById('opt-2').textContent = s.o2;
-      document.getElementById('opt-3').textContent = s.o3;
-      document.getElementById('opt-4').textContent = s.o4;
-    }
-
-    // Init language on load
-    setLang('en');
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    document.querySelectorAll('.hero .reveal').forEach(el => setTimeout(() => el.classList.add('visible'), 100));
-
-    // Hide scroll hint after first scr
+  <script src="main.js"></script>
+</body>
+</html>
